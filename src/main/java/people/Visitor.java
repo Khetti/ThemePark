@@ -29,4 +29,12 @@ public class Visitor {
     public double getMoney() {
         return money;
     }
+
+    public void visitAttraction(Attraction attraction) {
+        this.visitedAttractions.add(attraction);
+    }
+
+    public int visitedAttractionCount() {
+        return this.visitedAttractions.size();
+    }
 }
