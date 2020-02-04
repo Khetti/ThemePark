@@ -1,6 +1,5 @@
 import attractions.Attraction;
-import attractions.Dodgems;
-import stalls.CandyflossStall;
+import behaviours.IReviewed;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -9,10 +8,13 @@ public class ThemePark {
 
     private ArrayList<Attraction> attractions;
     private ArrayList<Stall> stalls;
+    private ArrayList<IReviewed> reviewed;
+
 
     public ThemePark(){
         this.attractions = new ArrayList<>();
         this.stalls = new ArrayList<>();
+        this.reviewed = new ArrayList<>();
     }
 
 
@@ -30,5 +32,19 @@ public class ThemePark {
 
     public int getStallsCount() {
         return this.stalls.size();
+    }
+
+    public ArrayList<IReviewed> getAllReviewed() {
+        for(Attraction attraction : this.attractions){
+            this.reviewed.add(attraction);
+        }
+        for(Stall stall : this.stalls){
+            this.reviewed.add(stall);
+        }
+        return this.reviewed;
+    }
+
+    public int getReviewedCount() {
+        return this.reviewed.size();
     }
 }

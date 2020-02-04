@@ -32,23 +32,29 @@ public class ThemeParkTest {
         candyflossStall = new CandyflossStall("Candy Land", "Harry Belafonte", ParkingSpot.A1, 2);
         iceCreamStall = new IceCreamStall("Dream Cones", "Vanilla Ice", ParkingSpot.A4, 5);
         tobaccoStall = new TobaccoStall("Jacks Drum", "Jack Jarvis", ParkingSpot.B1, 1);
-    }
-
-    @Test
-    public void hasAttractions() {
         themePark.addAttraction(dodgems);
         themePark.addAttraction(park);
         themePark.addAttraction(playground);
         themePark.addAttraction(rollerCoaster);
+        themePark.addStall(candyflossStall);
+        themePark.addStall(iceCreamStall);
+        themePark.addStall(tobaccoStall);
+    }
+
+    @Test
+    public void hasAttractions() {
         assertEquals(4, themePark.getAttractionsCount());
     }
 
     @Test
     public void hasStalls() {
-        themePark.addStall(candyflossStall);
-        themePark.addStall(iceCreamStall);
-        themePark.addStall(tobaccoStall);
         assertEquals(3, themePark.getStallsCount());
+    }
+
+    @Test
+    public void canGetAllReviewed() {
+        themePark.getAllReviewed();
+        assertEquals(7, themePark.getReviewedCount());
     }
 
 }
