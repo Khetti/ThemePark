@@ -50,6 +50,7 @@ public class ThemePark {
     }
 
     public void visit(Visitor visitor, Attraction attraction){
-
+        attraction.incrementVisitCount();
+        visitor.visitAttraction(attraction);
     }
 }

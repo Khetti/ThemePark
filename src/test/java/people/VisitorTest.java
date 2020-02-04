@@ -38,12 +38,12 @@ public class VisitorTest {
 
     @Test
     public void canVisitAttraction() {
-        assertEquals(1, visitor.visitedAttractionCount());
+        assertEquals(1, visitor.getVisitedAttractionCount());
     }
 
     @Test
     public void canGetVisitedAttractions() {
         ArrayList<Attraction> visitedAttractions = visitor.getVisitedAttractions();
-        assertEquals(1, visitor.visitedAttractionCount());
+        assertEquals(1, visitor.getVisitedAttractionCount());
     }
 }
