@@ -1,8 +1,11 @@
 package people;
 
+import attractions.Attraction;
 import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +18,7 @@ public class VisitorTest {
     public void before(){
         visitor = new Visitor(14, 1.2, 40.0);
         rollerCoaster = new RollerCoaster("Nemesis", 5);
+        visitor.visitAttraction(rollerCoaster);
     }
 
     @Test
@@ -34,7 +38,12 @@ public class VisitorTest {
 
     @Test
     public void canVisitAttraction() {
-        visitor.visitAttraction(rollerCoaster);
+        assertEquals(1, visitor.visitedAttractionCount());
+    }
+
+    @Test
+    public void canGetVisitedAttractions() {
+        ArrayList<Attraction> visitedAttractions = visitor.getVisitedAttractions();
         assertEquals(1, visitor.visitedAttractionCount());
     }
 }

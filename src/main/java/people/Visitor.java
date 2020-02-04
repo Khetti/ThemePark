@@ -37,4 +37,8 @@ public class Visitor {
     public int visitedAttractionCount() {
         return this.visitedAttractions.size();
     }
+
+    public ArrayList<Attraction> getVisitedAttractions() {
+        return this.visitedAttractions;
+    }
 }
