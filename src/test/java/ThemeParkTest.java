@@ -3,10 +3,13 @@ import attractions.Park;
 import attractions.Playground;
 import attractions.RollerCoaster;
 import org.junit.Before;
+import org.junit.Test;
 import stalls.CandyflossStall;
 import stalls.IceCreamStall;
 import stalls.ParkingSpot;
 import stalls.TobaccoStall;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class ThemeParkTest {
 
@@ -29,6 +32,23 @@ public class ThemeParkTest {
         candyflossStall = new CandyflossStall("Candy Land", "Harry Belafonte", ParkingSpot.A1, 2);
         iceCreamStall = new IceCreamStall("Dream Cones", "Vanilla Ice", ParkingSpot.A4, 5);
         tobaccoStall = new TobaccoStall("Jacks Drum", "Jack Jarvis", ParkingSpot.B1, 1);
+    }
+
+    @Test
+    public void hasAttractions() {
+        themePark.addAttraction(dodgems);
+        themePark.addAttraction(park);
+        themePark.addAttraction(playground);
+        themePark.addAttraction(rollerCoaster);
+        assertEquals(4, themePark.getAttractionsCount());
+    }
+
+    @Test
+    public void hasStalls() {
+        themePark.addStall(candyflossStall);
+        themePark.addStall(iceCreamStall);
+        themePark.addStall(tobaccoStall);
+        assertEquals(3, themePark.getStallsCount());
     }
 
 }
